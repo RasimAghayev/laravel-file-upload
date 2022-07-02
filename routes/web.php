@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileUploadController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/upload-file', [FileUploadController::class, 'createUploadForm']);
+Route::post('/upload-file', [FileUploadController::class, 'fileUploadForm'])->name('fileUploadForm');
